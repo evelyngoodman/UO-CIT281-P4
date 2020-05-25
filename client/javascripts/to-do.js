@@ -12,8 +12,18 @@ let controller = function() {
       $(".comments").append($new_comment);
       //$new_comment.fadeIn();
       $(".comment-input input").val("");
+
+      // log the list of comments
+      console.log($(".comments").html());
     }
   };
+  // Store
+  localStorage.comments = "";
+  // Retrieve
+  localStorage.setItem("toDoList", $(".comments").html());
+
+  if (toDoList(""));
+  return  $(".comments").html(localStorage.getItem("toDoList"));
 
   $(".comment-input button").on("click", function(event) {
     addCommentFromInputBox();
